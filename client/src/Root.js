@@ -4,14 +4,15 @@ import {Route} from 'react-router'
 import {ConnectedRouter} from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 import configureStore from './configureStore'
+
 import SplashPage from './components/SplashPage.js'
-import UserPage from './components/UserPage.js'
+
 const Root = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
         <Route exact path="/" component={SplashPage}/>
-        <Route exact path="/users" component={UserPage}/>
+
       </div>
     </ConnectedRouter>
   </Provider>
