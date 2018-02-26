@@ -7,6 +7,8 @@ import configureStore from './configureStore'
 
 import SplashPage from './components/SplashPage.js'
 
+import Auth from './Auth/Auth.js';
+
 const Root = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
