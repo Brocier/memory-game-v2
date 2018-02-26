@@ -7,7 +7,15 @@ import configureStore from './configureStore'
 
 import SplashPage from './components/SplashPage.js'
 
-import Auth from './Auth/Auth.js';
+import Auth from './auth/Auth.js';
+
+const auth = new Auth();
+
+const handleAuthentication = ({location}) => {
+  if (/access_token|id_token|error/.test(location.hash)) {
+    auth.handleAuthentication();
+  }
+}
 
 const Root = () => (
   <Provider store={store}>
