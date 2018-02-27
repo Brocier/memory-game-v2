@@ -1,4 +1,4 @@
 class Game < ApplicationRecord
-  has_many :high_scores dependent: :destroy
-  has_many :users through :high_scores
+  has_many :scores, dependent: :destroy
+  has_many :users, through: :scores
 end

@@ -1,4 +1,4 @@
-class HighScore < ApplicationRecord
+class Score < ApplicationRecord
   belongs_to :user
   belongs_to :game
 end
