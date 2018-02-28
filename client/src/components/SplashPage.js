@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
+import styled from 'styled-components'
 class SplashPage extends Component {
   render() {
     return (
@@ -10,12 +12,12 @@ class SplashPage extends Component {
         <div>
           {process.env.REACT_APP_SECRETCODE}
         </div>
-        <button>
+        <button onClick={() => this.props.push(`/users`)}>
           Log In
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default SplashPage;
+export default connect(null, {push})(SplashPage)

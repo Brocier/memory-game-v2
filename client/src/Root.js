@@ -6,6 +6,10 @@ import createHistory from 'history/createBrowserHistory'
 import configureStore from './configureStore'
 
 import SplashPage from './components/SplashPage.js'
+import UserPage from './components/users/UserPage';
+import NewUserForm from './components/users/NewUserForm';
+import EditUserForm from './components/users/EditUserForm';
+import UserProfile from './components/users/UserProfile';
 
 // import Auth from './auth/Auth.js'; const auth = new Auth(); const
 // handleAuthentication = ({location}) => {   if
@@ -21,6 +25,10 @@ const Root = () => (
     <ConnectedRouter history={history}>
       <div>
         <Route exact path="/" component={SplashPage}/>
+        <Route exact path="/users" component={UserPage}/>
+        <Route exact path="/users/new" component={NewUserForm}/>
+        <Route exact path="/users/:userId/edit" component={EditUserForm}/>
+        <Route exact path="/users/:userId/show" component={UserProfile}/>
       </div>
     </ConnectedRouter>
   </Provider>
