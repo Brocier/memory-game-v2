@@ -18,10 +18,7 @@ class Card extends Component {
   render() {
     return (
       <CardHolder onClick={this.handleCardClick}>
-        <img
-          width='200'
-          src={this.props.card.cardImage}
-          alt={this.props.card.cardDescription}/>
+        <img src={this.props.card.cardImage} alt={this.props.card.cardDescription}/>
       </CardHolder>
     );
   }
@@ -34,5 +31,10 @@ margin: 10px;
 padding: 10px;
 img{
   border-radius: 14px;
+  width:'200px';
+
+  @media (min-width: 412px){
+    width:'50px';
+  }
 }
 `
