@@ -25,7 +25,7 @@ class Api::ScoresController < ApplicationController
     end
   
     def destroy
-      @score = Score.find(params[:id]).delete
+      @score = Score.find(params[:id]).destroy
   
       render status: :ok
     end

@@ -24,7 +24,7 @@ class Api::GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find(params[:id]).delete
+    @game = Game.find(params[:id]).destroy
 
     render status: :ok
   end

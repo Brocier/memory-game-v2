@@ -6,7 +6,7 @@ ActiveRecord::Base.connection.tables.each do |t|
     ActiveRecord::Base.connection.reset_pk_sequence!(t)
   end
 
-matchEasy = Game.create(details: 'Match cards as quickly as possible' difficulty: 'SuperEasy - 4 Cards to match')
+matchEasy = Game.create(details: 'Match cards as quickly as possible', difficulty: 'SuperEasy - 4 Cards to match')
 
 josh = User.create(name: 'Josh', image: 'https://i.imgur.com/B0KOrC1.jpg?2')
 Score.create(score: 100, user: josh, game: matchEasy)
