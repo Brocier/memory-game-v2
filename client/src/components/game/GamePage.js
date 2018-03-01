@@ -9,24 +9,20 @@ class GamePage extends Component {
   render() {
     return (
       <Container>
-        <header>
-          <h1>Memory Game v2</h1>
-        </header>
+        <Title>Memory Game v2</Title>
         {/* <div>
           <Timer/>
         </div>
         <div>
           <DifficultySetting/>
-        </div>
-        <div>
-          Matches remaining
-        </div> */}
+        </div>*/}
         <div>
           <GameBoard/>
         </div>
         {/* <div>
           <Scoreboard/>
         </div> */}
+        <footer>Made by Josh</footer>
       </Container>
     );
   }
@@ -34,10 +30,14 @@ class GamePage extends Component {
 
 export default GamePage;
 
+const Title = styled.div `
+font-size: 95px;
+`
+
 const Container = styled.div `
     display: flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
     width:100vw;
     height:100vh;
