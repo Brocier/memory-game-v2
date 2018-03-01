@@ -13,13 +13,13 @@ class GameBoard extends Component {
         cardDescription: 'King of Hearts',
         cardImage: 'https://i.imgur.com/Rpq5dGUm.png'
       }, {
-        cardValue: 13,
-        cardDescription: 'King of Diamonds',
-        cardImage: 'https://i.imgur.com/yBIoedqm.png'
-      }, {
         cardValue: 12,
         cardDescription: 'Queen of Hearts',
         cardImage: 'https://i.imgur.com/dEIZ9mUm.png'
+      }, {
+        cardValue: 13,
+        cardDescription: 'King of Diamonds',
+        cardImage: 'https://i.imgur.com/yBIoedqm.png'
       }, {
         cardValue: 12,
         cardDescription: 'Queen of Diamonds',
@@ -36,8 +36,8 @@ class GameBoard extends Component {
   }
   render() {
     return (
-      <div>
-        Game Board
+      <GameBoardContainer>
+        Game Board Component
         <img width='200' src="https://i.imgur.com/sBb2shN.png" alt="card back"/>
         <CardHolder>
           {this
@@ -47,12 +47,17 @@ class GameBoard extends Component {
               return (<Card cardIsClicked={this.cardIsClicked} card={card} key={key}/>)
             })}
         </CardHolder>
-      </div>
+      </GameBoardContainer>
     );
   }
 }
 
 export default GameBoard;
+
+const GameBoardContainer = styled.div `
+padding: 5px;
+border: .5px goldenrod dotted;
+`
 
 const CardHolder = styled.div `
 display: flex;
