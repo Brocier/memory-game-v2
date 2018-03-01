@@ -11,6 +11,8 @@ import NewUserForm from './components/users/NewUserForm';
 import EditUserForm from './components/users/EditUserForm';
 import UserProfile from './components/users/UserProfile';
 
+import GamePage from './components/game/GamePage.js'
+
 // import Auth from './auth/Auth.js'; const auth = new Auth(); const
 // handleAuthentication = ({location}) => {   if
 // (/access_token|id_token|error/.test(location.hash)) {
@@ -29,6 +31,7 @@ const Root = () => (
         <Route exact path="/users/new" component={NewUserForm}/>
         <Route exact path="/users/:userId/edit" component={EditUserForm}/>
         <Route exact path="/users/:userId/show" component={UserProfile}/>
+        <Route exact path="/users/:userId/game" component={GamePage}/>
       </div>
     </ConnectedRouter>
   </Provider>

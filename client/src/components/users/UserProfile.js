@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getOneUserRoute} from '../../actions/thunk.users.js'
+import {push} from 'react-router-redux'
 
 class UserProfile extends Component {
 
@@ -32,7 +33,6 @@ class UserProfile extends Component {
     render() {
         console.log("our user", this.props.userBeingShown)
         return (
-
             <Container>
                 <h3>User Profile</h3>
                 <br/>
@@ -40,8 +40,11 @@ class UserProfile extends Component {
                     src={this.state.userBeingShown.image}
                     alt={this.state.userBeingShown.name}/>
                 <h1>{this.state.userBeingShown.name}</h1>
+                <button
+                    onClick={() => this.props.push(`/users/${this.state.userBeingShown.id}/game`)}>
+                    Start a Game
+                </button>
             </Container>
-
         );
     }
 }
@@ -50,7 +53,7 @@ const mapStateToProps = (state) => {
     return {userBeingShown: state.user[0]}
 }
 
-export default connect(mapStateToProps, {getOneUserRoute})(UserProfile);
+export default connect(mapStateToProps, {getOneUserRoute, push})(UserProfile);
 
 // /////////////////////////////////////////////////////////////////////////////
 // / / STYLED-COMPONENTS
