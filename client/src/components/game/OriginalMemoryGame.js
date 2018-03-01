@@ -182,8 +182,8 @@ const OriginalGameContainer = styled.div `
 // 	suit: "diamonds",  	cardImage: "images/queen-of-diamonds.png"  },  {  	rank:
 // "king",  	suit: "hearts",  	cardImage: "images/king-of-hearts.png"  },  {
 // 	rank: "king",  	suit: "diamonds",  	cardImage: "images/king-of-diamonds.png"
-//  }]; //empty array that is essential for the game logic var cardsInPlay = [];
-// //function to check for match var checkForMatch = function(clickedCard,
+//  }]; //empty array that is essential for the game logic var cardsInPlay =
+// []; //function to check for match var checkForMatch = function(clickedCard,
 // cardId){ 	clickedCard.setAttribute('src', cards[cardId].cardImage); 	if
 // (cardsInPlay.length === 2) { 		if (cardsInPlay[0] === cardsInPlay[1]) {
 // 		alert("You found a match!"); 		} else { 		alert("Sorry, try again.") }}};
@@ -192,10 +192,11 @@ const OriginalGameContainer = styled.div `
 // cards[cardId].rank); 	console.log (cards[cardId].cardImage); 	console.log
 // (cards[cardId].suit); 	cardsInPlay.push(cards[cardId].rank);
 // 	checkForMatch(this, cardId); }; // function that creates the card elements,
-// assigns them images, id's, and puts a click function on them. var createBoard
-// = function(){ 	for (var i = 0; i < cards.length; i++){ 		var cardElement =
-// document.createElement('img'); 			cardElement.setAttribute('src',
-// "images/back.png"); 			cardElement.setAttribute('data-id', i);
+// assigns them images, id's, and puts a click function on them. var
+// createBoard = function(){ 	for (var i = 0; i < cards.length; i++){ 		var
+// cardElement = document.createElement('img');
+// 			cardElement.setAttribute('src', "images/back.png");
+// 			cardElement.setAttribute('data-id', i);
 // 			cardElement.addEventListener('click', flipCard);
 // 			document.getElementById("game-board").appendChild(cardElement); 	} };
 // createBoard();

@@ -18,7 +18,7 @@ class UserPage extends Component {
           Home
         </button>
         <Header>
-          <div>What's Up Y'all?
+          <div>Pick a user
           </div>
         </Header>
         <div>

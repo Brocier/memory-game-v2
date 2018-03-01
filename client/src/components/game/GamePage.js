@@ -7,6 +7,9 @@ class GamePage extends Component {
         <header>
           <h1>Memory Game</h1>
         </header>
+        <div>
+          {process.env.REACT_APP_SECRETCODE}
+        </div>
       </div>
     );
   }
