@@ -16,9 +16,16 @@ class Card extends Component {
   }
 
   render() {
+    const src = (this.state.clicked)
+      ? (this.props.card.cardImage)
+      : ('https://i.imgur.com/sBb2shN.png')
     return (
       <CardHolder onClick={this.handleCardClick}>
-        <img src={this.props.card.cardImage} alt={this.props.card.cardDescription}/>
+        <img
+          height='230px'
+          width='150px'
+          src={src}
+          alt={this.props.card.cardDescription}/>
       </CardHolder>
     );
   }

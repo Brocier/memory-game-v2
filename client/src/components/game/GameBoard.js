@@ -27,18 +27,33 @@ class GameBoard extends Component {
       }
     ]
   }
-  cardIsClicked = (clickedCardValue) => {
-    if (this.state.cardOneClicked) {
-      this.setState({cardTwoClicked: clickedCardValue})
+
+  doCardsMatch = () => {
+    if (this.state.cardOneClicked === this.state.cardTwoClicked) {
+      console.log("Cards matched")
+      // Leave them showing but make them unclickable
     } else {
-      this.setState({cardOneClicked: clickedCardValue})
+      console.log("Not a match")
+      // Turn cards back over and make them clickable
     }
   }
+
+  cardIsClicked = (clickedCardValue) => {
+    if (this.state.cardOneClicked) {
+      this.setState({
+        cardTwoClicked: clickedCardValue
+      }, this.doCardsMatch)
+      console.log("Card two value " + clickedCardValue)
+    } else {
+      this.setState({cardOneClicked: clickedCardValue})
+      console.log("Card one value " + clickedCardValue)
+    }
+  }
+
   render() {
     return (
       <GameBoardContainer>
         Game Board Component
-        <img width='200' src="https://i.imgur.com/sBb2shN.png" alt="card back"/>
         <CardHolder>
           {this
             .state

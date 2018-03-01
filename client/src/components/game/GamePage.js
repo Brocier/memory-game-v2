@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import styled from 'styled-components'
 
 import GameBoard from './GameBoard.js'
-import Scoreboard from './Scoreboard.js'
-import Timer from './Timer.js'
-import DifficultySetting from './DifficultySetting.js'
+// import Scoreboard from './Scoreboard.js' import Timer from './Timer.js'
+// import DifficultySetting from './DifficultySetting.js'
 
 class GamePage extends Component {
   render() {
