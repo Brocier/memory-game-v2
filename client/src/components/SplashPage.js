@@ -20,19 +20,21 @@ class SplashPage extends Component {
             Log In
           </button>
         </div>
-        <CardAnimation className="wrapper">
-          {/* Card animation borrowed from https://codepen.io/kaypooma/pen/dEtxJ?page=9 */}
-          <div className="card">
-            <div className="club1">&#9827;</div>
-            <div className="ace1">
-              <div className="ace_a1">A
-                <br/>
-                <div className="ace_club1">&#9827;</div>
-              </div>
-              <div className="ace2">
-                <div className="ace_a2">A</div>
-                <br/>
-                <div className="ace_club2">&#9827;</div>
+        <CardAnimation >
+          <div className="wrapper">
+            {/* Card animation borrowed from https://codepen.io/kaypooma/pen/dEtxJ?page=9 */}
+            <div className="card">
+              <div className="club1">&#9827;</div>
+              <div className="ace1">
+                <div className="ace_a1">A
+                  <br/>
+                  <div className="ace_club1">&#9827;</div>
+                </div>
+                <div className="ace2">
+                  <div className="ace_a2">A</div>
+                  <br/>
+                  <div className="ace_club2">&#9827;</div>
+                </div>
               </div>
             </div>
           </div>
@@ -96,9 +98,9 @@ const CardAnimation = styled.div `
 }
 
 .wrapper {
-  -webkit-perspective: 25em;
-  -moz-perspective: 25em;
-  perspective: 25em;
+  -webkit-perspective: 20em;
+  -moz-perspective: 20em;
+  perspective: 20em;
 }
 
 @-webkit-keyframes rotate {
