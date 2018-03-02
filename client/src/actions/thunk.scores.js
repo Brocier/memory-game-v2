@@ -20,11 +20,12 @@ export function sendNewScoreToState(newScoreData) {
   return {type: 'CREATE_SCORE', newScoreData}
 }
 
-export function sendNewScoreToDatabase(userId, newScoreInfo) {
+export function sendNewScoreToDatabase(userId) {
   return function (dispatch) {
     return axios
-      .post(`/api/scores`, userId, newScoreInfo)
+      .post(`/api/scores`, {user: userId})
       .then((response) => {
+        console.log("RESPONSE FROM API", response)
         dispatch(sendNewScoreToState(response.data))
       })
   }

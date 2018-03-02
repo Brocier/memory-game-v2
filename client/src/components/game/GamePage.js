@@ -5,8 +5,9 @@ import {getOneUserRoute} from '../../actions/thunk.users.js'
 import {push} from 'react-router-redux'
 
 import GameBoard from './GameBoard.js'
-// import Scoreboard from './Scoreboard.js' import Timer from './Timer.js'
-// import DifficultySetting from './DifficultySetting.js'
+import Scoreboard from './Scoreboard.js'
+// import Timer from './Timer.js' import DifficultySetting from
+// './DifficultySetting.js'
 
 class GamePage extends Component {
 
@@ -51,9 +52,9 @@ class GamePage extends Component {
           src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
           alt="home"
           onClick={() => this.props.push(`/`)}></img>
-        {/* <div>
+        <div>
           <Scoreboard/>
-        </div> */}
+        </div>
         <footer>Made by Josh with &hearts;
         </footer>
       </Container>

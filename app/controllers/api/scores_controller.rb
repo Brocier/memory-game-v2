@@ -6,7 +6,15 @@ class Api::ScoresController < ApplicationController
     end
   
     def create
-      @score = Score.create!( score_params )
+      # @score = Score.create!( score_params )
+
+      @game = Game.first
+
+      @score = Score.create!({
+        user_id: params[:user],
+        game: @game,
+        score: 1
+      })
   
       render json: @score
     end

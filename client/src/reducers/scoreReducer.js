@@ -8,7 +8,7 @@ function scoreReducer(state = [], action) {
     case 'CREATE_SCORE':
       return [
         ...state,
-        action.newPostData
+        action.newScoreData
       ]
 
     default:

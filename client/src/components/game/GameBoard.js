@@ -46,7 +46,9 @@ class GameBoard extends Component {
 
   anyMatchesRemaining = () => {
     if (this.state.matchesRemaining === 0) {
-      // this   .props   .sendNewScoreToDatabase()
+      this
+        .props
+        .sendNewScoreToDatabase(this.props.user.id)
       this.setState({modalOpen: true})
     }
   }
