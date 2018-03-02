@@ -30,6 +30,14 @@ class GameBoard extends Component {
         cardImage: 'https://i.imgur.com/VjRWQU1m.png',
         clicked: false
       }
+      // , {   cardValue: 13,   cardDescription: 'King of Spades',   cardImage:
+      // 'https://i.imgur.com/iKNrO1Z.png',   clicked: false }, {   cardValue: 12,
+      // cardDescription: 'Queen of Spades',   cardImage:
+      // 'https://i.imgur.com/Fi2YjcJ.png',   clicked: false }, {   cardValue: 13,
+      // cardDescription: 'King of Clubs',   cardImage:
+      // 'https://i.imgur.com/CPAx0lW.png',   clicked: false }, {   cardValue: 12,
+      // cardDescription: 'Queen of Clubs',   cardImage:
+      // 'https://i.imgur.com/rVQbY8F.png',   clicked: false }
     ],
     matchesRemaining: 2,
     wrongGuesses: 0,
@@ -104,36 +112,14 @@ class GameBoard extends Component {
   }
 
   resetGame = () => {
-    this.setState({
-      cardOneClicked: null,
-      cardTwoClicked: null,
-      cardsToBeMatched: [
-        {
-          cardValue: 13,
-          cardDescription: 'King of Hearts',
-          cardImage: 'https://i.imgur.com/Rpq5dGUm.png',
-          clicked: false
-        }, {
-          cardValue: 12,
-          cardDescription: 'Queen of Hearts',
-          cardImage: 'https://i.imgur.com/dEIZ9mUm.png',
-          clicked: false
-        }, {
-          cardValue: 13,
-          cardDescription: 'King of Diamonds',
-          cardImage: 'https://i.imgur.com/yBIoedqm.png',
-          clicked: false
-        }, {
-          cardValue: 12,
-          cardDescription: 'Queen of Diamonds',
-          cardImage: 'https://i.imgur.com/VjRWQU1m.png',
-          clicked: false
-        }
-      ],
-      matchesRemaining: 2,
-      wrongGuesses: 0,
-      modalOpen: false
-    })
+    const cardsToBeMatched = this
+      .state
+      .cardsToBeMatched
+      .map((card) => {
+        card.clicked = false
+        return card
+      })
+    this.setState({cardsToBeMatched, matchesRemaining: 2, wrongGuesses: 0, modalOpen: false})
   }
 
   render() {
