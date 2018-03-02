@@ -27,7 +27,6 @@ class Card extends Component {
 export default Card;
 
 const CardHolder = styled.div `
-margin: 10px;
 padding: 10px;
 img{
   border-radius: 14px;

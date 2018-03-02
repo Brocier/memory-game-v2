@@ -52,6 +52,10 @@ class EditUserForm extends Component {
     return (
       <Container>
         <div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
+            alt="home"
+            onClick={() => this.props.push(`/`)}></img>
           <h2>
             {this.state.userBeingEdited.name}</h2>
         </div>

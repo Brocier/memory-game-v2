@@ -40,6 +40,10 @@ class UserForm extends Component {
   render() {
     return (
       <Container>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
+          alt="home"
+          onClick={() => this.props.push(`/`)}></img>
         <div>
           Username:</div>
         <input

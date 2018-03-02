@@ -47,7 +47,10 @@ class GamePage extends Component {
         <div>
           <GameBoard user={this.state.user}/>
         </div>
-        <button onClick={() => this.props.push(`/`)}>home</button>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
+          alt="home"
+          onClick={() => this.props.push(`/`)}></img>
         {/* <div>
           <Scoreboard/>
         </div> */}
@@ -66,6 +69,10 @@ export default connect(mapStateToProps, {getOneUserRoute, push})(GamePage);
 
 const Title = styled.div `
 font-size: 95px;
+@media (max-width: 400px){
+  font-size:42px;
+}
+
 `
 
 const Container = styled.div `
@@ -85,7 +92,9 @@ const Container = styled.div `
     text-shadow:4px 4px 8px rgba(0,0,0,0.35);
     background-size: cover;
     background-repeat:no-repeat;
-    header{
-
+    footer{
+      @media (max-width: 400px){
+        font-size:20px;
+      }
     }
 `

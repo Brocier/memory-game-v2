@@ -14,9 +14,10 @@ class UserPage extends Component {
   render() {
     return (
       <Body>
-        <button onClick={() => this.props.push('/')}>
-          Home
-        </button>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
+          alt="home"
+          onClick={() => this.props.push(`/`)}></img>
         <Header>
           <div>Pick a user
           </div>

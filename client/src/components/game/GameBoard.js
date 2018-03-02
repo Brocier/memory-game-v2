@@ -38,9 +38,7 @@ class GameBoard extends Component {
 
   anyMatchesRemaining = () => {
     if (this.state.matchesRemaining === 0) {
-      this
-        .props
-        .sendNewScoreToDatabase()
+      // this   .props   .sendNewScoreToDatabase()
       this.setState({modalOpen: true})
     }
   }
@@ -180,6 +178,7 @@ const GameBoardContainer = styled.div `
 
 display: flex;
 flex-direction:column;
+flex-wrap: wrap;
 justify-content:space-between;
 align-items:center;
 top:0;
@@ -190,7 +189,9 @@ font-family: 'Montserrat', sans-serif;
 color:#000033;
 padding: 5px;
 border: .5px goldenrod dotted;
-width:'200px';
+@media (max-width: 400px){
+  font-size:27px;
+}
 /* The Modal (background) */
 .modal {
     display: block; /* Hidden by default */
@@ -234,4 +235,5 @@ width:'200px';
 `
 const CardHolder = styled.div `
 display: flex;
+flex-wrap: wrap;
 `

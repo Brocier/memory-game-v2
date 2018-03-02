@@ -35,6 +35,10 @@ class UserProfile extends Component {
     return (
       <Container>
         <h3>User Profile</h3>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
+          alt="home"
+          onClick={() => this.props.push(`/`)}></img>
         <br/>
         <img
           src={this.state.userBeingShown.image}
