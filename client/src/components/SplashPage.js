@@ -29,10 +29,10 @@ class SplashPage extends Component {
                 <br/>
                 <div className="ace_club1">&#9827;</div>
               </div>
-              <div class="ace2">
-                <div class="ace_a2">A</div>
+              <div className="ace2">
+                <div className="ace_a2">A</div>
                 <br/>
-                <div class="ace_club2">&#9827;</div>
+                <div className="ace_club2">&#9827;</div>
               </div>
             </div>
           </div>
