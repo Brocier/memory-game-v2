@@ -10,8 +10,10 @@ class SplashPage extends Component {
           Memory Game v2
         </h1>
         <div className="description">
-          Post-WDI experienced remake of the Pre-work for General Assembly's Web
-          Development Immersive program
+          General Assembly's Web Development Immersive program experienced remake of the
+          Pre-admission work.
+          <br/>
+          See the README.md for a full list of technologies learned and used.
         </div>
         <div>
           <button onClick={() => this.props.push(`/users`)}>
@@ -19,6 +21,7 @@ class SplashPage extends Component {
           </button>
         </div>
         <CardAnimation className="wrapper">
+          {/* Card animation borrowed from https://codepen.io/kaypooma/pen/dEtxJ?page=9 */}
           <div className="card">
             <div className="club1">&#9827;</div>
             <div className="ace1">
@@ -26,10 +29,11 @@ class SplashPage extends Component {
                 <br/>
                 <div className="ace_club1">&#9827;</div>
               </div>
-              {/* <div class="ace2"></div>
-              <div class="ace_a2">A</div>
-              <br/>
-              <div class="ace_club2">&#9827;</div> */}
+              <div class="ace2">
+                <div class="ace_a2">A</div>
+                <br/>
+                <div class="ace_club2">&#9827;</div>
+              </div>
             </div>
           </div>
         </CardAnimation>
@@ -76,8 +80,8 @@ const CardAnimation = styled.div `
 .ace2 {
   position: relative;
   font-size: 30px;
-  top: 250px; 
-  left: 155px;
+  top: 233px;
+  left: 158px;
   line-height: 20px;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -87,8 +91,8 @@ const CardAnimation = styled.div `
 
 .ace_club2{
   position: relative;
-  left: -5px;
-  top: 5px;
+  left: 0px;
+  top: -10px;
 }
 
 .wrapper {
@@ -128,6 +132,7 @@ const SplashPageContainer = styled.div `
     background-size: cover;
     background-repeat:no-repeat;
     .description{
+      text-align: center;
       width: 70%;
       font-size: 30px;
       @media (max-width: 400px){
@@ -142,6 +147,8 @@ const SplashPageContainer = styled.div `
       font-weight: 400;
       font-size: 45px;
       margin: 0;
+      width: 100vw;
+      text-align: center;
       background-color: #F15B31;
     }
     img{
