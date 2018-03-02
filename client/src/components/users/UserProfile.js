@@ -6,51 +6,51 @@ import {push} from 'react-router-redux'
 
 class UserProfile extends Component {
 
-    componentWillMount() {
-        const userId = this.props.match.params.userId;
-        this
-            .props
-            .getOneUserRoute(userId)
+  componentWillMount() {
+    const userId = this.props.match.params.userId;
+    console.log("userId " + userId)
+    this
+      .props
+      .getOneUserRoute(userId)
 
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            userBeingShown: {
-                id: this.props.match.params.userId,
-                name: nextProps.userBeingShown.name,
-                image: nextProps.userBeingShown.image
-            }
-        })
-    }
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      userBeingShown: {
+        id: this.props.match.params.userId,
+        name: nextProps.userBeingShown.name,
+        image: nextProps.userBeingShown.image
+      }
+    })
+  }
 
-    state = {
-        userBeingShown: {
-            name: "",
-            image: ""
-        }
+  state = {
+    userBeingShown: {
+      name: "",
+      image: ""
     }
+  }
 
-    render() {
-        console.log("our user", this.props.userBeingShown)
-        return (
-            <Container>
-                <h3>User Profile</h3>
-                <br/>
-                <img
-                    src={this.state.userBeingShown.image}
-                    alt={this.state.userBeingShown.name}/>
-                <h1>{this.state.userBeingShown.name}</h1>
-                <button
-                    onClick={() => this.props.push(`/users/${this.state.userBeingShown.id}/game`)}>
-                    Start a Game
-                </button>
-            </Container>
-        );
-    }
+  render() {
+    return (
+      <Container>
+        <h3>User Profile</h3>
+        <br/>
+        <img
+          src={this.state.userBeingShown.image}
+          alt={this.state.userBeingShown.name}/>
+        <h1>{this.state.userBeingShown.name}</h1>
+        <button
+          onClick={() => this.props.push(`/users/${this.state.userBeingShown.id}/game`)}>
+          Start a Game
+        </button>
+      </Container>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {userBeingShown: state.user[0]}
+  return {userBeingShown: state.user[0]}
 }
 
 export default connect(mapStateToProps, {getOneUserRoute, push})(UserProfile);

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components'
-
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 import GameBoard from './GameBoard.js'
 // import Scoreboard from './Scoreboard.js' import Timer from './Timer.js'
 // import DifficultySetting from './DifficultySetting.js'
@@ -22,13 +23,17 @@ class GamePage extends Component {
         {/* <div>
           <Scoreboard/>
         </div> */}
-        <footer>Made by Josh</footer>
+        <footer>Made by Josh
+          <button onClick={() => this.props.push(`/`)}>home
+          </button>
+        </footer>
+
       </Container>
     );
   }
 }
 
-export default GamePage;
+export default connect(null, {push})(GamePage);
 
 const Title = styled.div `
 font-size: 95px;

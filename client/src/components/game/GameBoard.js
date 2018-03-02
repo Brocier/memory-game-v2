@@ -1,10 +1,32 @@
 import React, {Component} from 'react';
 import Card from './Card.js'
 import styled from 'styled-components'
+import {connect} from 'react-redux'
+import {getOneUserRoute} from '../../actions/thunk.users.js'
 
 class GameBoard extends Component {
 
+  componentWillMount() {
+    // console.log("userId " + userId)
+    this
+      .props
+      .getOneUserRoute(1)
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      user: {
+        // id: nextProps.user.userId,
+        name: nextProps.user.name,
+        image: nextProps.user.image
+      }
+    })
+  }
+
   state = {
+    user: {
+      name: "",
+      image: ""
+    },
     cardOneClicked: null,
     cardTwoClicked: null,
     cardsToBeMatched: [
@@ -95,12 +117,56 @@ class GameBoard extends Component {
     }
   }
 
+  closeModal = () => {
+    this.setState({
+      modalOpen: !this.state.modalOpen
+    })
+  }
+
+  resetGame = () => {
+    this.setState({
+      cardOneClicked: null,
+      cardTwoClicked: null,
+      cardsToBeMatched: [
+        {
+          cardValue: 13,
+          cardDescription: 'King of Hearts',
+          cardImage: 'https://i.imgur.com/Rpq5dGUm.png',
+          clicked: false
+        }, {
+          cardValue: 12,
+          cardDescription: 'Queen of Hearts',
+          cardImage: 'https://i.imgur.com/dEIZ9mUm.png',
+          clicked: false
+        }, {
+          cardValue: 13,
+          cardDescription: 'King of Diamonds',
+          cardImage: 'https://i.imgur.com/yBIoedqm.png',
+          clicked: false
+        }, {
+          cardValue: 12,
+          cardDescription: 'Queen of Diamonds',
+          cardImage: 'https://i.imgur.com/VjRWQU1m.png',
+          clicked: false
+        }
+      ],
+      matchesRemaining: 2,
+      wrongGuesses: 0,
+      modalOpen: false
+    })
+  }
+
   render() {
     const modal = (this.state.modalOpen)
       ? (
-        <div className="modal-content">
-          <span className="close">&times;</span>
-          <p>VICTORY!!!</p>
+        <div className="modal">
+          <div className="modal-content">
+            <span onClick={() => (this.closeModal())} className="close">&times;</span>
+            <div>
+              VICTORY!!! Way to go {this.state.user.name}
+              <button onClick={() => (this.resetGame())}>Play Again?</button>
+            </div>
+          </div>
         </div>
       )
       : ('')
@@ -124,7 +190,11 @@ class GameBoard extends Component {
   }
 }
 
-export default GameBoard;
+const mapStateToProps = (state) => {
+  return {user: state.user[0]}
+}
+
+export default connect(mapStateToProps, {getOneUserRoute})(GameBoard)
 
 const GameBoardContainer = styled.div `
 padding: 5px;
@@ -132,7 +202,7 @@ border: .5px goldenrod dotted;
 width:'200px';
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -160,11 +230,11 @@ width:'200px';
 }
 
 .close:hover,
-.close:focus {
+  .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
+  }
 }
 
 @media (min-width: 412px){

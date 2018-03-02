@@ -13,11 +13,6 @@ import UserProfile from './components/users/UserProfile';
 
 import GamePage from './components/game/GamePage.js'
 
-// import Auth from './auth/Auth.js'; const auth = new Auth(); const
-// handleAuthentication = ({location}) => {   if
-// (/access_token|id_token|error/.test(location.hash)) {
-// auth.handleAuthentication();   } }
-
 const history = createHistory()
 const store = configureStore(history)
 console.log(store)
