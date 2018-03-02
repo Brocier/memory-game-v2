@@ -1,32 +1,9 @@
 import React, {Component} from 'react';
 import Card from './Card.js'
 import styled from 'styled-components'
-import {connect} from 'react-redux'
-import {getOneUserRoute} from '../../actions/thunk.users.js'
 
 class GameBoard extends Component {
-
-  componentWillMount() {
-    // console.log("userId " + userId)
-    this
-      .props
-      .getOneUserRoute(1)
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      user: {
-        // id: nextProps.user.userId,
-        name: nextProps.user.name,
-        image: nextProps.user.image
-      }
-    })
-  }
-
   state = {
-    user: {
-      name: "",
-      image: ""
-    },
     cardOneClicked: null,
     cardTwoClicked: null,
     cardsToBeMatched: [
@@ -163,7 +140,9 @@ class GameBoard extends Component {
           <div className="modal-content">
             <span onClick={() => (this.closeModal())} className="close">&times;</span>
             <div>
-              VICTORY!!! Way to go {this.state.user.name}
+              <div>
+                VICTORY!!! Way to go {this.props.user.name}!
+              </div>
               <button onClick={() => (this.resetGame())}>Play Again?</button>
             </div>
           </div>
@@ -190,13 +169,20 @@ class GameBoard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {user: state.user[0]}
-}
-
-export default connect(mapStateToProps, {getOneUserRoute})(GameBoard)
+export default GameBoard
 
 const GameBoardContainer = styled.div `
+
+display: flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+top:0;
+left:0;
+right:0;
+bottom:0;
+font-family: 'Montserrat', sans-serif;
+color:#000033;
 padding: 5px;
 border: .5px goldenrod dotted;
 width:'200px';
