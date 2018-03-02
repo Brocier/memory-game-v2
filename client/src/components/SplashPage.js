@@ -9,6 +9,10 @@ class SplashPage extends Component {
         <h1>
           Memory Game v2
         </h1>
+        <div className="description">
+          Post-WDI experienced remake of the Pre-work for General Assembly's Web
+          Development Immersive program
+        </div>
         <div>
           <button onClick={() => this.props.push(`/users`)}>
             Log In
@@ -38,14 +42,11 @@ export default connect(null, {push})(SplashPage)
 
 const CardAnimation = styled.div `
 .card {
-  -webkit-user-select: none; 
-  -moz-user-select: none;
-  -ms-user-select: none;
   cursor: default;
   width: 200px;
   height: 350px;
-  color: #000033;
-  background-color: #a8f4b1;
+  color: #FFFFFF;
+  background-color: #00aab7;
   border-radius: 15px;
   text-align: center;
   line-height: 350px;
@@ -112,7 +113,7 @@ const CardAnimation = styled.div `
 const SplashPageContainer = styled.div `
     display: flex;
     flex-direction:column;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items:center;
     width:100vw;
     height:100vh;
@@ -126,10 +127,15 @@ const SplashPageContainer = styled.div `
     text-shadow:4px 4px 8px rgba(0,0,0,0.35);
     background-size: cover;
     background-repeat:no-repeat;
+    .description{
+      width: 70%;
+      font-size: 30px;
+      @media (max-width: 400px){
+          font-size:20px;
+      }
+    }
     h1{
       padding: 20px;
-      top:65px;
-      margin:20px;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #FFFFFF;
