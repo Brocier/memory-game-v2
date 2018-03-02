@@ -30,5 +30,9 @@ const CardHolder = styled.div `
 padding: 10px;
 img{
   border-radius: 14px;
+  cursor: pointer;
+      &:hover{
+      transform:translateY(3px);
+      }
 }
 `
