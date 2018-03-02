@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Card from './Card.js'
 import styled from 'styled-components'
+import {connect} from 'react-redux'
+import {sendNewScoreToDatabase} from '../../actions/thunk.scores.js'
 
 class GameBoard extends Component {
   state = {
@@ -36,6 +38,9 @@ class GameBoard extends Component {
 
   anyMatchesRemaining = () => {
     if (this.state.matchesRemaining === 0) {
+      this
+        .props
+        .sendNewScoreToDatabase()
       this.setState({modalOpen: true})
     }
   }
@@ -169,7 +174,7 @@ class GameBoard extends Component {
   }
 }
 
-export default GameBoard
+export default connect(null, {sendNewScoreToDatabase})(GameBoard)
 
 const GameBoardContainer = styled.div `
 
