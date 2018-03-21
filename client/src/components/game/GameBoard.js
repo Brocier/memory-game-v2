@@ -121,7 +121,14 @@ class GameBoard extends Component {
         card.clicked = false
         return card
       })
-    this.setState({cardsToBeMatched, matchesRemaining: 2, wrongGuesses: 0, modalOpen: false})
+    this.setState({
+      cardOneClicked: null,
+      cardTwoClicked: null,
+      cardsToBeMatched,
+      matchesRemaining: 2,
+      wrongGuesses: 0,
+      modalOpen: false
+    })
   }
 
   render() {
@@ -132,7 +139,7 @@ class GameBoard extends Component {
             <span onClick={() => (this.closeModal())} className="close">&times;</span>
             <div>
               <div>
-                VICTORY!!! Way to go {this.props.user.name}!
+                Way to go {this.props.user.name}! You beat this match!
               </div>
               <button onClick={() => (this.resetGame())}>Play Again?</button>
             </div>
@@ -144,6 +151,7 @@ class GameBoard extends Component {
     return (
       <GameBoardContainer>
         {modal}
+        <button onClick={() => (this.resetGame())}>Restart Game</button>
 
         Matches Remaining = {this.state.matchesRemaining}
         <CardHolder>
