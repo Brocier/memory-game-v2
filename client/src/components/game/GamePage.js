@@ -38,7 +38,13 @@ class GamePage extends Component {
   render() {
     return (
       <Container>
-        <Title>Memory Game v2</Title>
+        <Title>
+          Memory Game v2
+        </Title>
+        <HomeButton
+          src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
+          alt="home"
+          onClick={() => this.props.push(`/`)}></HomeButton>
         {/* <div>
           <Timer/>
         </div>
@@ -48,15 +54,12 @@ class GamePage extends Component {
         <div>
           <GameBoard user={this.state.user}/>
         </div>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/3/34/Home-icon.svg"
-          alt="home"
-          onClick={() => this.props.push(`/`)}></img>
+
         <div>
           <Scoreboard/>
         </div>
-        <footer>Made by Josh with &hearts;
-        </footer>
+        {/* <footer>Made by Josh with &hearts;
+        </footer> */}
       </Container>
     );
   }
@@ -70,12 +73,24 @@ export default connect(mapStateToProps, {getOneUserRoute, push})(GamePage);
 
 const Title = styled.div `
 font-size: 95px;
+padding: 20px;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: #FFFFFF;
+font-weight: 400;
+font-size: 45px;
+margin: 0;
+width: 100vw;
+text-align: center;
+background-color: #F15B31;
 @media (max-width: 400px){
   font-size:42px;
 }
 
 `
-
+const HomeButton = styled.img `
+  /* position: absolute; */
+`
 const Container = styled.div `
     display: flex;
     flex-direction:column;
