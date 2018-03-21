@@ -16,7 +16,7 @@ class SplashPage extends Component {
           See the README.md for a full list of technologies learned and used.
         </div>
         <div>
-          <button onClick={() => this.props.push(`/users`)}>
+          <button onClick={() => this.props.push(`/users/1/game`)}>
             Log In
           </button>
         </div>
