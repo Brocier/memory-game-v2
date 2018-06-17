@@ -1,5 +1,7 @@
 # Memory Game v2
 
+## Use <https://codepen.io/aarongriffis/pen/MXjvbV>
+
 #### [Heroku Link](https://memory-game-v2.herokuapp.com/)
 
 #### [Trello Board](https://trello.com/b/Vsn2pApB)
